@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import DefaultLayout from "./layout/DefaultLayout"
 import HomePage from "./pages/HomePage"
+import MoviesPage from "./pages/MoviesPAge"
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/movies" element={<h1>Movies Page</h1>} />
+            <Route path="/movies" element={<MoviesPage />} />
             <Route path="/movies/:id" element={<h1>Movie Page</h1>} />
             <Route path="/admin" element={<h1>Admin Page</h1>} />
             <Route path="*" element={<h1>404 Not Found</h1>} />

@@ -17,10 +17,10 @@ il tema sarà un'app di film in cui si potranno lascioare recensioni pubbliche
 - [x] define the first routes `/`
 - [x] define the second route `/:id`
 - [x] define the not found page `*`
-- [x] define the create movie page (admin) 
 - [x] define the default layout
 - [x] define an Hompage component and build the its static layout
-- [] define the MoviePage component and build its static layout
+- [x] define the MoviePage component and build its static layout
+- [] define the create movie page (admin) 
 - [] ⚠ (you need CORS policy) perform ajax request inside the homepage component to fetch the movies list
 - [] ⚠ (you need CORS policy) perform ajax request inside the sigle moviepage to fetch movie and its review
 - [] prepare a reviews form component, sigle review component, other component ? 

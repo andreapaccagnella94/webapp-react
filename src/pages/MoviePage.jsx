@@ -6,6 +6,7 @@ export default function MoviePage() {
 
     return (
         <>
+            {/* Movie Cover */}
             <div class="p-5 mb-4 bg-light rounded-3">
                 <div class="container-fluid py-5 d-flex gap-4">
                     <div className="cover col-12 col-sm-5 col-md-4">
@@ -23,7 +24,7 @@ export default function MoviePage() {
                 </div>
             </div>
 
-
+            {/* Review Form */}
             <div className="mb-4">
                 <div className="container">
                     <h3>Leave a Review</h3>
@@ -52,7 +53,7 @@ export default function MoviePage() {
                 <hr className="w-25 mx-auto pt-5 my-5" />
             </div>
 
-
+            {/* Reviews Section */}
             <section id="reviews">
                 <div className="container">
                     <div className="card p-3 mb-3 position-relative">

@@ -1,7 +1,31 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+
+const API_URL = "http://localhost:3000/api/movies";
 
 export default function MoviesPage() {
 
+    const [movies, setMovies] = useState([]);
+    // predisponiamo una costatnte per prendere l'errore per un fututo Bonus
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        axios.get(API_URL)
+            .then(res => {
+                console.log(res);
+                setMovies(res.data.movies);
+
+
+            })
+            .catch(err => {
+                // TODO: it would be great to show a user-friendly message in the UI (maybe use a useState hook to store the error and show it)
+                /* console.error(err); */
+                console.log(err.message);
+                setError(err.message);
+            })
+    }, [])
 
     return (
 

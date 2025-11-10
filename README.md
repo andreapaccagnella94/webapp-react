@@ -16,6 +16,8 @@ il tema sarà un'app di film in cui si potranno lascioare recensioni pubbliche
 
 - [x] define the first routes `/`
 - [x] define the second route `/:id`
+- [x] define the not found page `*`
+- [x] define the create movie page (admin) 
 - [x] define the default layout
 - [] define an Hompage component and build the its static layout
 - [] define the MoviePage component and build its static layout

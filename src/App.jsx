@@ -11,8 +11,10 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<h1>Home Page</h1>} />
-            <Route path="/movies/:id" element={<h1>Movies Page</h1>} />
+            <Route path="/movies" element={<h1>Movies Page</h1>} />
+            <Route path="/movies/:id" element={<h1>Movie Page</h1>} />
             <Route path="/admin" element={<h1>Admin Page</h1>} />
+            <Route path="*" element={<h1>404 Not Found</h1>} />
           </Route>
         </Routes>
       </BrowserRouter>

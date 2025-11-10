@@ -19,7 +19,7 @@ il tema sarà un'app di film in cui si potranno lascioare recensioni pubbliche
 - [x] define the not found page `*`
 - [x] define the create movie page (admin) 
 - [x] define the default layout
-- [] define an Hompage component and build the its static layout
+- [x] define an Hompage component and build the its static layout
 - [] define the MoviePage component and build its static layout
 - [] ⚠ (you need CORS policy) perform ajax request inside the homepage component to fetch the movies list
 - [] ⚠ (you need CORS policy) perform ajax request inside the sigle moviepage to fetch movie and its review

@@ -41,114 +41,22 @@ export default function MoviesPage() {
             <section>
                 <div className="container mb-5">
                     <div className="row row-cols-1 row-cols-md-3 g-4">
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/1">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 1</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 1</div>
-                                    <Link className="btn btn-dark" to="/movies/1">View Details</Link>
+                        {movies.map(movie => (
+                            <div className="col" key={movie.id}>
+                                <div className="card">
+                                    <Link to={`/movies/${movie.id}`}>
+                                        <img src={movie.image} className="card-img-top" alt={movie.title} />
+                                    </Link>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{movie.title}</h5>
+                                        <div className="my-2"><i className="bi bi-camera-reels"></i>{movie.director}</div>
+                                        <div className="my-2"><i className="bi bi-film"></i>{movie.genre}</div>
+                                        <Link className="btn btn-dark" to={`/movies/${movie.id}`}>View details</Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/2">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 2</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 2</div>
-                                    <Link className="btn btn-dark" to="/movies/2">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/3">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 3</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 3</div>
-                                    <Link className="btn btn-dark" to="/movies/3">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/1">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 1</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 1</div>
-                                    <Link className="btn btn-dark" to="/movies/1">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/2">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 2</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 2</div>
-                                    <Link className="btn btn-dark" to="/movies/2">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/3">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 3</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 3</div>
-                                    <Link className="btn btn-dark" to="/movies/3">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/1">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 1</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 1</div>
-                                    <Link className="btn btn-dark" to="/movies/1">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/2">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 2</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 2</div>
-                                    <Link className="btn btn-dark" to="/movies/2">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card">
-                                <Link to="/movies/3">
-                                    <img src="https://placehold.co/600x400" className="card-img-top" alt="Movie Title" />
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">Movie Title 3</h5>
-                                    <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 3</div>
-                                    <Link className="btn btn-dark" to="/movies/3">View Details</Link>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
+
                     </div>
                     <div className="text-center ">
                         <button className="btn btn-dark btn-lg mt-5">Load More Movies</button>

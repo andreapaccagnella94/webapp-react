@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import MoviesList from "../components/MoviesList";
 
 
 const API_URL = "http://localhost:3000/api/movies";
@@ -38,31 +38,7 @@ export default function MoviesPage() {
                     </p>
                 </div>
             </div>
-            <section>
-                <div className="container mb-5">
-                    <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {movies.map(movie => (
-                            <div className="col" key={movie.id}>
-                                <div className="card">
-                                    <Link to={`/movies/${movie.id}`}>
-                                        <img src={movie.image} className="card-img-top" alt={movie.title} />
-                                    </Link>
-                                    <div className="card-body">
-                                        <h5 className="card-title">{movie.title}</h5>
-                                        <div className="my-2"><i className="bi bi-camera-reels"></i>{movie.director}</div>
-                                        <div className="my-2"><i className="bi bi-film"></i>{movie.genre}</div>
-                                        <Link className="btn btn-dark" to={`/movies/${movie.id}`}>View details</Link>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
-                    <div className="text-center ">
-                        <button className="btn btn-dark btn-lg mt-5">Load More Movies</button>
-                    </div>
-                </div>
-            </section>
+            <MoviesList movies={movies} />
         </>
     )
 }

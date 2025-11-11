@@ -87,11 +87,8 @@ export default function MoviePage() {
                             <p className="mb-1">{rev.text}</p>
                             <div>Vote : {rev.vote}</div>
                             <div className="vote text-warning position-absolute top-0 end-0 p-2">
-                                <i className="bi bi-star-fill "></i>
-                                <i className="bi bi-star-fill "></i>
-                                <i className="bi bi-star-fill "></i>
-                                <i className="bi bi-star-fill "></i>
-                                <i className="bi bi-star "></i>
+                                {/* {'<i className="bi bi-star-fill'.repeat(rev.vote)}{'<i className="bi bi-star "></i>'.repeat(5 - rev.vote)} */}
+                                {'★'.repeat(rev.vote)}{'☆'.repeat(5 - rev.vote)}
                             </div>
                         </div>
                     ))}

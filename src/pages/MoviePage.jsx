@@ -1,22 +1,47 @@
-import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams, } from "react-router-dom";
+
+
 
 export default function MoviePage() {
 
     const { id } = useParams();
+    const API_URL = `http://localhost:3000/api/movies/${id}`
+
+    const [movie, setMovie] = useState(null)
+    // predisponiamo una costatnte per prendere l'errore per un fututo Bonus
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        axios.get(API_URL)
+            .then(res => {
+                console.log(res.data);
+                setMovie(res.data)
+            })
+            .catch(err => {
+                // TODO: it would be great to show a user-friendly message in the UI (maybe use a useState hook to store the error and show it)
+                /* console.error(err); */
+                console.log(err.message);
+                setError(err.message);
+            })
+    }, [])
 
     return (
+
         <>
             {/* Movie Cover */}
-            <div class="p-5 mb-4 bg-light rounded-3">
-                <div class="container-fluid py-5 d-flex gap-4">
+            <div className="p-5 mb-4 bg-light rounded-3">
+                <div className="container-fluid py-5 d-flex gap-4">
                     <div className="cover col-12 col-sm-5 col-md-4">
-                        <img src="https://placehold.co/600x400" className="img-fluid" alt="Movie Title" />
+                        <img src={movie?.image} className="img-fluid" alt={movie?.title} />
                     </div>
                     <div className="details">
-                        <h1 class="display-5 fw-bold">Name of movie</h1>
-                        <div className="my-2"><i className="bi bi-person-badge"></i>Author Name 1</div>
+                        <h1 className="display-5 fw-bold">{movie?.title}</h1>
+                        <div className="my-2"><i className="bi bi-camera-reels"></i>{movie?.director}</div>
+                        <div className="my-2"><i className="bi bi-film"></i>{movie?.genre}</div>
                         <p className="lead">
-                            A small description about the movie goes here. This section can include details about the plot, cast, director, release date, and other relevant information that provides an overview of the movie.
+                            {movie?.abstract}
                         </p>
 
                     </div>
@@ -56,41 +81,25 @@ export default function MoviePage() {
             {/* Reviews Section */}
             <section id="reviews">
                 <div className="container">
-                    <div className="card p-3 mb-3 position-relative">
-                        <h4>Mario</h4>
-                        <p className="mb-1">A mind-bending masterpiece.</p>
-                        <div className="vote text-warning position-absolute top-0 end-0 p-2">
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star "></i>
+                    {movie?.reviews.map(rev => (
+                        <div className="card p-3 mb-3 position-relative" key={rev.id}>
+                            <h4>{rev.name}</h4>
+                            <p className="mb-1">{rev.text}</p>
+                            <div>Vote : {rev.vote}</div>
+                            <div className="vote text-warning position-absolute top-0 end-0 p-2">
+                                <i className="bi bi-star-fill "></i>
+                                <i className="bi bi-star-fill "></i>
+                                <i className="bi bi-star-fill "></i>
+                                <i className="bi bi-star-fill "></i>
+                                <i className="bi bi-star "></i>
+                            </div>
                         </div>
-                    </div>
-                    <div className="card p-3 mb-3 position-relative">
-                        <h4>Sofia</h4>
-                        <p className="mb-1">A mind-bending masterpiece.</p>
-                        <div className="vote text-warning position-absolute top-0 end-0 p-2">
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star "></i>
-                        </div>
-                    </div>
-                    <div className="card p-3 mb-3 position-relative">
-                        <h4>Giacomo</h4>
-                        <p className="mb-1">A mind-bending masterpiece.</p>
-                        <div className="vote text-warning position-absolute top-0 end-0 p-2">
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star-fill "></i>
-                            <i className="bi bi-star "></i>
-                        </div>
-                    </div>
+                    ))}
+
+
                 </div>
             </section>
         </>
     )
-}
+
+};

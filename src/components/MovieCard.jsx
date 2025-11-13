@@ -8,7 +8,7 @@ export default function MovieCard({ movie }) {
             <div className="col">
                 <div className="card">
                     <Link to={`/movies/${movie.id}`}>
-                        <img src={movie.image} className="card-img-top" alt={movie.title} />
+                        <img src={`http://localhost:3000/${movie.image}`} className="card-img-top" alt={movie.title} />
                     </Link>
                     <div className="card-body">
                         <h5 className="card-title">{movie.title}</h5>

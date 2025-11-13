@@ -34,7 +34,7 @@ export default function MoviePage() {
             <div className="p-5 mb-4 bg-light rounded-3">
                 <div className="container-fluid py-5 d-flex gap-4">
                     <div className="cover col-12 col-sm-5 col-md-4">
-                        <img src={movie?.image} className="img-fluid" alt={movie?.title} />
+                        <img src={`http://localhost:3000/${movie?.image}`} className="img-fluid" alt={movie?.title} />
                     </div>
                     <div className="details">
                         <h1 className="display-5 fw-bold">{movie?.title}</h1>

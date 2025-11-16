@@ -22,7 +22,7 @@ il tema sarà un'app di film in cui si potranno lascioare recensioni pubbliche
 - [x] define the MoviePage component and build its static layout
 - [x] ⚠ (you need CORS policy) perform ajax request inside the homepage component to fetch the movies list
 - [x] ⚠ (you need CORS policy) perform ajax request inside the sigle moviepage to fetch movie and its review
-- [] define the create movie page (admin) 
+- [x] define the create movie page (admin) 
 - [] prepare a reviews form component, sigle review component, other component ? 
 - [] 
 - [] 

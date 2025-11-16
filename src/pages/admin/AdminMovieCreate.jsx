@@ -1,10 +1,10 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
+import { useState } from "react"
 
 
 
-const URL = 'http://localhost:3000/api/movies'
+
+const URL = "http://localhost:3000/api/movies"
 const initialData = {
     title: "",
     director: "",
@@ -17,6 +17,7 @@ const initialData = {
 export default function AdminMovieCreate() {
 
     const [formData, setFormData] = useState(initialData)
+    const [successMessage, setSuccessMessage] = useState(null)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -39,11 +40,16 @@ export default function AdminMovieCreate() {
             .then(response => {
                 console.log(response);
 
+                if (response.status === 201) {
+                    setFormData(initialData)
+                    setSuccessMessage("Book created successfully!")
+                }
+
             })
             .catch(error => {
                 console.error("There was an error creating the movie", error)
             })
-        setFormData(initialData)
+
     }
 
 
@@ -56,6 +62,12 @@ export default function AdminMovieCreate() {
                     </h1>
                 </div>
             </div>
+
+            {successMessage && (
+                <div className="alert alert-success" role="alert">
+                    {successMessage}
+                </div>
+            )}
 
             {/*add books form */}
             <div className="container">
